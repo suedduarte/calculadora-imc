@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="icon" href="img/iconimc.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Índice de Massa Corporal</h1>
+<br>    
+    <label for="peso">Peso (Kg):</label>
+    <input type="number" id="peso" name="peso" class="input">
+    <br>
+    <label for="altura">Altura:</label>
+    <input type="number" id="altura" name="altura" class="input">
+    <br>
+    <button onclick="calcularImc()" class="button">Calcular</button>
+    <br> <br>
+    <p>Seu índice de massa corporal é: <span id="resultado"></span></p>
+</div>
+
+<div class="img">
+    <img src="img/interpretaçãoIMC.jpg" alt="tabelaimc">
+</div>
+
+<div id="footer">
+    <span>By: Sued Duarte | IMC | HTML, CSS e JavaScript</span>
+</div>
+
+
+
+    <script>
+        function calcularImc(){
+            const peso = document.getElementById('peso').value;
+            const altura = document.getElementById('altura').value;
+            const imc = peso / (altura **2);
+
+            document.getElementById('resultado').textContent = imc.toFixed(2);
+        }
+
+        let tituloDinamico = document.title;
+        window.addEventListener("blur",() =>{
+            document.title = 'volte aqui'
+        });
+
+        window.addEventListener("focus", () =>{
+            document.title = tituloDinamico
+        });
+
+    </script>
+    
+
+</body>
+</html>
